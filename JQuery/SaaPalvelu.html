@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <style></style>
+  <body>
+    <table id="myTable">
+      <tr>
+        <button onclick="hae()">Show</button>
+      </tr>
+      <select id="kaupunki">
+        <option value="Rovaniemi">Rovaniemi</option>
+        <option value="Helsinki">Helsinki</option>
+        <option value="London">Lontoo</option>
+      </select>
+      <tbody id="data"></tbody>
+    </table>
+  </body>
+  <script>
+    //datan haku
+    function hae() {
+      var city = document.getElementById("kaupunki").value;
+
+      fetch(
+        "http://api.openweathermap.org/data/2.5/weather?q=" +
+          city +
+          "&APPID=0e886f7ad4a841c34979c45acf1bfaf2&lang=Fi"
+      )
+        .then((response) => response.json())
+        .then((json) => display(json, city));
+    }
+    //luettelon teko ja ja select valinta
+    function display(a, city) {
+      var k = "<tbody>";
+      k +=
+        'lämpötila<input type="checkbox" id="kel" onclick="läm()"><p id="lämpötila" style="display:none">' +
+        a.main.temp +
+        " Kelviniä</p><br>";
+      k +=
+        'ilmankosteus<input type="checkbox" id="kosteus" onclick="ilma()"><p id="ilmankosteus" style="display:none">' +
+        a.main.humidity +
+        " %</p><br>";
+      k +=
+        'Tuulennopeus<input type="checkbox" id="nopeus" onclick="tuuli()"><p id="tuulennopeus" style="display:none">' +
+        a.wind.speed +
+        " m/s</p><br>";
+      k +=
+        'pilvisyys<input type="checkbox" id="taivas" onclick="pilvi()"><p id="pilvisyys" style="display:none">' +
+        a.clouds.all +
+        " %</p><br>";
+      k +=
+        '<img src="Material/' +
+        city +
+        '.jpg"  style="width:auto;height:300px;" alt="City">';
+      k += "</tbody>";
+      document.getElementById("data").innerHTML = k;
+    }
+    function läm() {
+      // Get the checkbox
+      var checkBox = document.getElementById("kel");
+      // Get the output text
+      var text = document.getElementById("lämpötila");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
+    function ilma() {
+      // Get the checkbox
+      var checkBox = document.getElementById("kosteus");
+      // Get the output text
+      var text = document.getElementById("ilmankosteus");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
+    function tuuli() {
+      // Get the checkbox
+      var checkBox = document.getElementById("nopeus");
+      // Get the output text
+      var text = document.getElementById("tuulennopeus");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
+    function pilvi() {
+      // Get the checkbox
+      var checkBox = document.getElementById("taivas");
+      // Get the output text
+      var text = document.getElementById("pilvisyys");
+
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true) {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
+  </script>
+</html>

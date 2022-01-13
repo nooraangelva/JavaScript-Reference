@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form>
+      <p>Give the temperature in fahrenheit I´ll show it in Celsius</p>
+      <br />
+      Fahrenheit: <input type="text" id="x" /><br />
+      <button type="button" onclick="toClecius();">C*</button><br />
+      in Celsius:
+      <input type="text" id="result" />
+    </form>
+  </body>
+
+  <script>
+
+    function toClecius() {
+
+      var x = parseInt(document.getElementById("x").value);
+
+      document.getElementById("result").value = (5 / 9) * (x - 32);
+
+    }
+    
+  </script>
+</html>

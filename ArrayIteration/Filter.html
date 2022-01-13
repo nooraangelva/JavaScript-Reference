@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table,
+    td,
+    tr {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <h2>Products</h2>
+    <table>
+      <tbody id="data"></tbody>
+    </table>
+
+    <script>
+      //reading+print
+      var txt = "";
+      var products = [
+        " milk",
+        " coffee",
+        " juice",
+        " lemonade",
+        " beer",
+        " sour milk",
+      ];
+      var products1 = products.filter(filter);
+      products1.forEach(print);
+      document.getElementById("data").innerHTML = txt;
+
+      //filter
+      function filter(value, index, array) {
+        return index == 0 || index == 2;
+      }
+      //yhdistys
+      function print(value, index, array) {
+        txt += "<tr>" + "<td>" + value + "</td>" + "</tr>";
+      }
+    </script>
+  </body>
+</html>

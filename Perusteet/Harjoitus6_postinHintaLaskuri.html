@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form>
+      <p>Paketti vai kirje</p>
+      <input type="text" id="x" /><br />
+      Paino: <br />
+      <input type="text" id="y" /><br />
+      Mahtuuko kirje postilaatikosta yli 500g: <br />
+      <input type="text" id="z" /><br />
+
+      <button type="button" onclick="muutos()">button</button><br />
+    </form>
+    Hinta:
+    <input type="text" id="result" />
+  </body>
+
+  <script>
+
+    function muutos() {
+
+      var x = document.getElementById("x").value;
+      var y = parseInt(document.getElementById("y").value);
+
+      y = y / 100;
+      Math.floor(y);
+
+      if (x == "Paketti") {
+        pakettiPaino(y);
+      } 
+      else if (x == "Kirje") {
+        kirjePaino(y);
+      }
+
+    }
+
+    function pakettiPaino(y) {
+
+      if (y < 2) {
+        document.getElementById("result").value = 0.5;
+      } 
+      else if (y >= 2 && y <= 5) {
+        document.getElementById("result").value = 2 + y * 0.08;
+      } 
+      else if (y > 5) {
+        document.getElementById("result").value = 2 + y * 0.014;
+      }
+
+    }
+    function kirjePaino(y) {
+
+      var z = document.getElementById("z").value;
+      console.log(y);
+
+      if (y < 2) {
+        document.getElementById("result").value = 0.5;
+      } 
+      else if (y >= 2 && y <= 5) {
+        document.getElementById("result").value = 0.5 + y * 0.04;
+      } 
+      else if (y > 5) {
+        if (z == "Kyllä") {
+          document.getElementById("result").value = 0.5 + y * 0.07;
+        } 
+        else {
+          document.getElementById("result").value = 2.5 + y * 0.07;
+        }
+
+      }
+
+    }
+    
+  </script>
+</html>

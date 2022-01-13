@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table,
+    td,
+    tr {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <h2>Products</h2>
+    <table>
+      <tbody id="data"></tbody>
+    </table>
+
+    <script>
+      //reading+print
+      var txt = "";
+      var products = [
+        " milk",
+        " coffee",
+        " juice",
+        " lemonade",
+        " beer",
+        " sour milk",
+      ];
+      var products2 = products.reduce(pilkutus);
+      document.getElementById("data").innerHTML = products2;
+
+      function pilkutus(total, value, index, array) {
+        return (total += ", " + value);
+      }
+    </script>
+  </body>
+</html>

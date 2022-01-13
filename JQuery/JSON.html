@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table,
+    td,
+    tr {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <table>
+      <tbody id="data"></tbody>
+    </table>
+  </body>
+  <script>
+    var text =
+      '{"employees":[' +
+      '{"firstName":"John","lastName":"Doe" },' +
+      '{"firstName":"Anna","lastName":"Smith" },' +
+      '{"firstName":"Peter","lastName":"Jones" }]}';
+
+    var text =
+      '{"person":[' +
+      '{"name": "Jane Smith","address": "123 My Drive","phone": "123-456-7890","email": "me@home.com"}]}';
+
+    obj = JSON.parse(text);
+    display();
+    function display() {
+      var k = "<tbody>";
+      for (i = 0; i < obj.person.length; i++) {
+        k += "<tr>" + "<td>" + obj.person[i].name + "</td>" + "</tr>";
+        k += "<tr>" + "<td>" + obj.person[i].address + "</td>" + "</tr>";
+        k += "<tr>" + obj.person[i].phone + "</td>" + "</tr>";
+        k += "<tr>" + "<td>" + obj.person[i].email + "</td>" + "</tr>";
+      }
+      k += "</tbody>";
+      document.getElementById("data").innerHTML = k;
+    }
+  </script>
+</html>

@@ -1,0 +1,5 @@
+[Tue Nov 26 13:06:44.458401 2019] [mpm_winnt:notice] [pid 319156:tid 884] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Tue Nov 26 13:06:44.459392 2019] [mpm_winnt:notice] [pid 319156:tid 884] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Tue Nov 26 13:06:44.459392 2019] [core:notice] [pid 319156:tid 884] AH00094: Command line: 'C:\\Users\\noora\\Documents\\HTML\\USBWebserver v8.6/apache2/bin/httpd_usbwv8.exe -d C:/Users/noora/Documents/HTML/USBWebserver v8.6/apache2'
+[Tue Nov 26 13:06:44.467386 2019] [mpm_winnt:notice] [pid 319156:tid 884] AH00418: Parent: Created child process 319628
+[Tue Nov 26 13:06:45.272926 2019] [mpm_winnt:notice] [pid 319628:tid 888] AH00354: Child: Starting 64 worker threads.

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form>
+      <p>Give the following vallues and count the sum</p>
+      <br />
+      x: <input type="text" id="x" /><br />
+      y:
+      <input type="text" id="y" />
+      <br />
+      <button type="button" onclick="sum();">x+y</button><br />
+      <button type="button" onclick="minus();">x-y</button><br />
+      <button type="button" onclick="mult();">x*y</button><br />
+      <button type="button" onclick="div();">x/y</button><br />
+      <button type="button" onclick="sqrt();">-/x</button><br />
+      <button type="button" onclick="pot();">x^2</button><br />
+      the sum is:
+      <input type="text" id="result" />
+    </form>
+  </body>
+
+  <script>
+
+    function sum() {
+
+      var x = parseInt(document.getElementById("x").value);
+      var y = parseInt(document.getElementById("y").value);
+
+      document.getElementById("result").value = x + y;
+
+    }
+
+    function minus() {
+
+      var x = parseInt(document.getElementById("x").value);
+      var y = parseInt(document.getElementById("y").value);
+
+      document.getElementById("result").value = x - y;
+
+    }
+
+    function mult() {
+
+      var x = parseInt(document.getElementById("x").value);
+      var y = parseInt(document.getElementById("y").value);
+
+      document.getElementById("result").value = x * y;
+
+    }
+
+    function div() {
+
+      var x = parseInt(document.getElementById("x").value);
+      var y = parseInt(document.getElementById("y").value);
+
+      document.getElementById("result").value = x / y;
+
+    }
+
+    function sqrt() {
+
+      var x = parseInt(document.getElementById("x").value);
+
+      document.getElementById("result").value = Math.sqrt(x);
+
+    }
+
+    function pot() {
+
+      var x = parseInt(document.getElementById("x").value);
+
+      document.getElementById("result").value = Math.pow(x, 2);
+      
+    }
+
+  </script>
+</html>

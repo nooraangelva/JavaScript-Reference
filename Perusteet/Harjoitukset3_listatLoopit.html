@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="x"></p>
+    <br />
+    <p id="demo"></p>
+    <table
+      cellpadding="2"
+      cellspacing="2"
+      border="0"
+      bgcolor="#dfdfdf"
+      width="40%"
+      align="left"
+    >
+      <thead>
+        <tr>
+          <th width="10%" align="left">Author</th>
+          <th width="10%" align="left">title</th>
+          <th width="10%" align="left">libaryID</th>
+        </tr>
+      </thead>
+      <tbody id="data"></tbody>
+    </table>
+    <button onclick="sort()">Sort</button>
+  </body>
+  <script>
+    
+    // object
+    var student = {
+      id: 123456,
+      fname: "John",
+      lname: "Doe",
+      age: 48,
+    };
+
+    var kurssit = ["Ohjelmointi", "Elektroniikka", "English", "Matematiikka"];
+    var text = "";
+    var i;
+    for (i = 0; i < kurssit.length; i++) {
+      text += kurssit[i] + "<br>";
+    }
+
+    // Display data
+    document.getElementById("x").innerHTML =
+      "id: " +
+      student.id +
+      "  nimi: " +
+      student.fname +
+      " " +
+      student.lname +
+      "  ika: " +
+      student.age;
+    document.getElementById("demo").innerHTML = text;
+
+    var library = [
+      { author: "Gates Bill", title: "The Road Ahead", libraryID: 1254 },
+      { author: "Jobs Steve", title: "Walter Isaacson", libraryID: 4264 },
+      {
+        author: "Collins Suzanne",
+        title: "Mockingjay: The Final Book of The Hunger Games",
+        libraryID: 3245,
+      },
+    ];
+    display();
+
+    //sort library
+    function sort() {
+      library.sort(function (a, b) {
+        var x = a.author.toLowerCase();
+        var y = b.author.toLowerCase();
+        if (x < y) {
+          return -1;
+        }
+        if (x > y) {
+          return 1;
+        }
+        return 0;
+      });
+      display();
+    }
+
+    //table display
+    function display() {
+      var k = "<tbody>";
+      for (i = 0; i < library.length; i++) {
+        k += "<tr>";
+        k += "<td>" + library[i].author + "</td>";
+        k += "<td>" + library[i].title + "</td>";
+        k += "<td>" + library[i].libraryID + "</td>";
+        k += "</tr>";
+      }
+      k += "</tbody>";
+      document.getElementById("data").innerHTML = k;
+    }
+  </script>
+</html>

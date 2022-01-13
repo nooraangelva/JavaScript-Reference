@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table,
+    td,
+    tr {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <table>
+      <tbody id="data"></tbody>
+    </table>
+  </body>
+
+  <script>
+    loadDoc();
+    function loadDoc() {
+      var cars = new XMLHttpRequest();
+      cars.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+          //document.getElementById("data").innerHTML = this.responseText;
+        }
+      };
+      cars.open("GET", "cars.json", true);
+      cars.send();
+    }
+    display();
+    function display() {
+      var k = "<tbody>";
+      for (i = 0; i < this.data.length; i++) {
+        k += "<tr>" + "<td>" + this.data[i].manufacturer + "</td>" + "</tr>";
+        k += "<tr>" + "<td>" + this.data[i].model + "</td>" + "</tr>";
+        k += "<tr>" + this.data[i].price + "</td>" + "</tr>";
+        k += "<tr>" + "<td>" + this.data[i].wiki + "</td>" + "</tr>";
+      }
+      k += "</tbody>";
+      document.getElementById("data").innerHTML = k;
+    }
+  </script>
+</html>

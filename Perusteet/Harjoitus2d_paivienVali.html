@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form>
+      <p>Give two dates</p>
+      <br />
+      date 1: <input type="date" id="x" /><br />
+      date 2:
+      <input type="date" id="y" />
+      <br />
+      <button type="button" onclick="calc();">date</button><br />
+      the diffrence is:
+      <p id="res"></p>
+    </form>
+  </body>
+  <script>
+
+    function calc() {
+
+      var dateFirst = document.getElementById("x").value;
+      var dateSecond = document.getElementById("y").value;
+
+      dateFirst = new Date(dateFirst);
+      dateSecond = new Date(dateSecond);
+
+      // time difference
+      var timeDiff = Math.abs(dateSecond.getTime() - dateFirst.getTime());
+      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      // difference
+      document.getElementById("res").innerHTML = diffDays;
+
+    }
+    
+  </script>
+</html>

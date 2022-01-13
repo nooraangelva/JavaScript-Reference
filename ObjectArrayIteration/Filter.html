@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table,
+    td,
+    tr {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <h2>Products</h2>
+    <table>
+      <tr>
+        <td>Product</td>
+        <td>Price</td>
+      </tr>
+      <tbody id="data"></tbody>
+    </table>
+
+    <script>
+      //reading
+      var txt = "";
+
+      const products = [
+        { name: "milk", price: 1.1 },
+        { name: "coffee", price: 3.5 },
+        { name: "juice", price: 0.75 },
+        { name: "lemonade", price: 0.9 },
+        { name: "beer", price: 2.7 },
+        { name: "sour milk", price: 0.8 },
+      ];
+      //filter
+      const price = products.filter((product) => {
+        return product.price < 2;
+      });
+
+      display();
+      //print
+      function display() {
+        var k = "<tbody>";
+        for (i = 0; i < price.length; i++) {
+          k += "<tr>";
+          k += "<td>" + products[i].name + "</td>";
+          k += "<td>" + products[i].price + "</td>";
+          k += "</tr>";
+        }
+        k += "</tbody>";
+        document.getElementById("data").innerHTML = k;
+      }
+    </script>
+  </body>
+</html>
